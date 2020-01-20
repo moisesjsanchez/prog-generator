@@ -2,7 +2,17 @@
 
   <div class="app">
     <h1>Prog Generator</h1>
-    <p>To create some guide lines on your riff click the new idea button</p>
+    <p>Are you in musical rut, and can't come with some tasty, unique riffs. You have come to the right place.</p>
+    <p>With this simple web appliction you can create a randomized base to build of on.</p>
+    <h3>How To Use</h3>
+    <ul>
+      <li>1.) Click any one of the "Get" buttons to get a random guideline to go off of. </li>
+      <li>2.) Write your riff based of the critera you get. You can follow this critera as strictly or loosely as you want.</li>
+      <li>3.) Share and/or enjoy your riff!</li>
+    </ul>
+    <p>If you like the riff you create with your guidelines, please post your requirements and the riff you made to #proggen on
+      social media!</p>
+    <p>Enjoy the service!</p>
     <div class="container">
       <div class="btn">
         {{scale}}
