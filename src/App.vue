@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ProgGenerator msg="Welcome to Your Vue.js App"/>
+    <ProgGenerator />
   </div>
 </template>
 
@@ -16,12 +16,16 @@ export default {
 </script>
 
 <style>
+body{
+  background-color: #00adb5;
+}
+
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+   font-family: 'Roboto', arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>

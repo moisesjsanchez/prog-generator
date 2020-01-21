@@ -1,18 +1,23 @@
 <template>
 
   <div class="app">
-    <h1>Prog Generator</h1>
-    <p>Are you in musical rut, and can't come with some tasty, unique riffs. You have come to the right place.</p>
-    <p>With this simple web appliction you can create a randomized base to build of on.</p>
-    <h3>How To Use</h3>
-    <ul>
-      <li>1.) Click any one of the "Get" buttons to get a random guideline to go off of. </li>
-      <li>2.) Write your riff based of the critera you get. You can follow this critera as strictly or loosely as you want.</li>
-      <li>3.) Share and/or enjoy your riff!</li>
-    </ul>
-    <p>If you like the riff you create with your guidelines, please post your requirements and the riff you made to #proggen on
-      social media!</p>
-    <p>Enjoy the service!</p>
+
+    <div class="info-container">
+      <h1>Prog Generator</h1>
+      <p>Are you in musical rut, and can't come with some tasty, unique riffs. You have come to the right place.</p>
+      <p>With this simple web appliction you can create a randomized base to build of on.</p>
+      <h3>How To Use</h3>
+      <ul>
+        <li>1.) Click any one of the "Get" buttons to get a random guideline to go off of. Do not mind the slow start up, it is
+          the app waking up! </li>
+        <li>2.) Write your riff based of the critera you get. You can follow this critera as strictly or loosely as you want.</li>
+        <li>3.) Share and/or enjoy your riff!</li>
+      </ul>
+      <p>If you like the riff you create with your guidelines, please post your requirements and the riff you made to #proggen
+        on social media!</p>
+      <p>Enjoy the service!</p>
+    </div>
+
     <div class="container">
       <div class="btn">
         {{scale}}
@@ -27,6 +32,7 @@
         {{chord_prog}}
       </div>
     </div>
+
     <div class="center-container">
       <div @click=getScales class="random-btn">
         Get Scale
@@ -40,7 +46,16 @@
       <div @click=getChordProg class="random-btn">
         Get Chord Progression
       </div>
+
     </div>
+
+    <div class="social-media" style="font-size: 45px;">
+      <a href="https://www.instagram.com/"><i class="fa fa-instagram fa-lg"></i></a>
+      <a href="https://soundcloud.com/"><i class="fa fa-soundcloud fa-lg"></i></a>
+      <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-lg"></i></a>
+      <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter-square fa-lg"></i></a>
+    </div>
+
   </div>
 
 </template>
@@ -62,9 +77,7 @@
     methods: {
       getScales() {
         axios
-          .get(
-            'https://cors-anywhere.herokuapp.com/' + 'https://guitarist-toolbox.herokuapp.com/music-info/scales/random'
-          )
+          .get('https://guitarist-toolbox.herokuapp.com/music-info/scales/random')
           .then(response => {
             this.scale = response.data['Scale']
           })
@@ -75,40 +88,35 @@
       },
       getTechnique() {
         axios
-          .get(
-            'https://cors-anywhere.herokuapp.com/' +
-              'https://guitarist-toolbox.herokuapp.com/music-info/techniques/random'
-          )
+          .get('https://guitarist-toolbox.herokuapp.com/music-info/techniques/random')
           .then(response => {
             this.technique = response.data['Technique']
           })
           .catch(error => {
             console.log(error)
-            this.scale = 'Technique does not exist'
+            this.technique = 'Technique does not exist'
           })
       },
       getTimeSignature() {
         axios
-          .get('https://cors-anywhere.herokuapp.com/' + 'https://guitarist-toolbox.herokuapp.com/music-info/times/random')
+          .get('https://guitarist-toolbox.herokuapp.com/music-info/times/random')
           .then(response => {
             this.time_signature = response.data['Time Signature']
           })
           .catch(error => {
             console.log(error)
-            this.scale = 'Time signature does not exist'
+            this.time_signature = 'Time signature does not exist'
           })
       },
       getChordProg() {
         axios
-          .get(
-            'https://cors-anywhere.herokuapp.com/' + 'https://guitarist-toolbox.herokuapp.com/music-info/chords/random'
-          )
+          .get('https://guitarist-toolbox.herokuapp.com/music-info/chords/random')
           .then(response => {
             this.chord_prog = response.data['Chord']
           })
           .catch(error => {
             console.log(error)
-            this.scale = 'Chord does not exist'
+            this.chord_prog = 'Chord does not exist'
           })
       }
     }
@@ -119,9 +127,29 @@
 <!-- Styling for application -->
 <style scoped>
 
+  ul,
+  li {
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .app {
     margin: 0 auto;
     width: 90%;
+    color: #303841;
+  }
+
+  .info-container {
+    border-radius: 25px;
+    background: #eee;
+    padding: 20px;
   }
 
   .container {
@@ -130,6 +158,7 @@
     grid-auto-rows: minmax(50px, auto);
     grid-gap: 20px;
     grid-column: 1/4;
+    padding-top: 20px;
   }
 
   .center-container {
@@ -138,22 +167,34 @@
     grid-auto-rows: minmax(50px, auto);
     grid-gap: 20px;
     grid-column: 1/4;
+    padding-top: 20px;
   }
 
   .btn {
     display: flex;
+    border-radius: 25px;
     background-color: #eee;
-    border: 1px solid #333;
     align-items: center;
     justify-content: center;
   }
 
   .random-btn {
     display: flex;
+    border-radius: 25px;
     background-color: #eee;
-    border: 1px solid #333;
     align-items: center;
     justify-content: center;
+  }
+
+  .random-btn:hover {
+    background-color: #ff5722;
+  }
+
+  .social-media {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: 1/4;
+    padding-top: 150px;
   }
 
 </style>
