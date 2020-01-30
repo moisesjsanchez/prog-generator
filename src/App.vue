@@ -1,31 +1,20 @@
 <template>
-  <div id="app">
+  <v-app>
     <ProgGenerator />
-  </div>
+    <Footer />
+  </v-app>
 </template>
 
 <script>
-import ProgGenerator from './components/ProgGenerator.vue'
+import ProgGenerator from './components/ProgGenerator';
+import Footer from './components/Footer'
 
 export default {
-  name: 'app',
+  name: 'App',
+
   components: {
-    ProgGenerator
+    ProgGenerator,
+    Footer
   }
-}
+};
 </script>
-
-<style>
-body{
-  background-color: #00adb5;
-}
-
-
-#app {
-   font-family: 'Roboto', arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
-}
-</style>
