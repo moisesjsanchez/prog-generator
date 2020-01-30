@@ -1,62 +1,61 @@
 <template>
 
-  <div class="app">
-
-    <div class="info-container">
-      <h1>Prog Generator</h1>
-      <p>Are you in musical rut, and can't come with some tasty, unique riffs. You have come to the right place.</p>
-      <p>With this simple web appliction you can create a randomized base to build of on.</p>
-      <h3>How To Use</h3>
-      <ul>
-        <li>1.) Click any one of the "Get" buttons to get a random guideline to go off of. Do not mind the slow start up, it is
-          the app waking up! </li>
-        <li>2.) Write your riff based of the critera you get. You can follow this critera as strictly or loosely as you want.</li>
-        <li>3.) Share and/or enjoy your riff!</li>
-      </ul>
-      <p>If you like the riff you create with your guidelines, please post your requirements and the riff you made to #proggen
-        on social media!</p>
-      <p>Enjoy the service!</p>
+  <v-container>
+    <h1 class="display-3 ma-5 text-center">Welcome to Prog Generator!</h1>
+    <v-card class="mt-5">
+      <v-card-text>
+        <p class="mt-3">Are you in musical rut, and can't come with some tasty, and unique riffs. Every just wanted to discover new techniques
+          and just get to writing a riff? Or do you lack a n-sided die with a bunch of various musical terms to help your song
+          writing process. You have come to the right place. With this simple web appliction you can create a randomized base
+          to build off. Your imagination is the limit!</p>
+        <v-divider />
+        <v-card-title>How To Use</v-card-title>
+        <ul>
+          <li>Click any one of the "Get" buttons to get a random guideline to go off of. Sometimes the first click takes a couple seconds. This is the application waking up!</li>
+          <li>Write your riff based off the critera you get. You can follow this critera as strictly or loosely as you want.</li>
+          <li>Enjoy your riff!</li>
+        </ul>
+        <v-divider class="mt-3" />
+        <p class="ml-5 mt-5">If you like the riff you created, please post your guidelines and riff to #proggen on social
+          media!
+        </p>
+        <v-row class="text-left mt-5">
+          <v-col class="ml-5">
+            <v-btn icon class="mr-7" href="https://www.instagram.com/" target="_blank">
+              <v-icon large class="fab fa-instagram" color="red darken-1" />
+            </v-btn>
+            <v-btn icon class="mr-7" href="https://soundcloud.com/" target="_blank">
+              <v-icon large class="fab fa-soundcloud" color="red darken-1" />
+            </v-btn>
+            <v-btn icon class="mr-7" href="https://www.facebook.com/" target="_blank">
+              <v-icon large class="fab fa-facebook" color="red darken-1" />
+            </v-btn>
+            <v-btn icon href="https://twitter.com/?lang=en" target="_blank">
+              <v-icon large class="fab fa-twitter" color="red darken-1" />
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+    <!-- Random Critera Selector -->
+    <div class="text-center mt-10">
+      <v-row justify="center">
+        <v-col md="6" cols="12">
+          <v-btn depressed color="red lighten-1" class="ma-1" width="100%" @click="getScales()">{{this.scale}}</v-btn>
+        </v-col>
+        <v-col md="6" cols="12">
+          <v-btn depressed color="red lighten-1" class="ma-1" width="100%" @click="getTechnique()">{{this.technique}}</v-btn>
+        </v-col>
+        <v-col md="6" cols="12">
+          <v-btn depressed color="red lighten-1" class="ma-2" width="100%" @click="getTimeSignature()">{{this.time_signature}}</v-btn>
+        </v-col>
+        <v-col md="6" cols="12">
+          <v-btn depressed color="red lighten-1" class="ma-1" width="100%" @click="getChordProg()">{{this.chord_prog}}</v-btn>
+        </v-col>
+      </v-row>
     </div>
 
-    <div class="container">
-      <div class="btn">
-        {{scale}}
-      </div>
-      <div class="btn">
-        {{technique}}
-      </div>
-      <div class="btn">
-        {{time_signature}}
-      </div>
-      <div class="btn">
-        {{chord_prog}}
-      </div>
-    </div>
-
-    <div class="center-container">
-      <div @click=getScales class="random-btn">
-        Get Scale
-      </div>
-      <div @click=getTechnique class="random-btn">
-        Get Technique
-      </div>
-      <div @click=getTimeSignature class="random-btn">
-        Get Time Signature
-      </div>
-      <div @click=getChordProg class="random-btn">
-        Get Chord Progression
-      </div>
-
-    </div>
-
-    <div class="social-media" style="font-size: 45px;">
-      <a href="https://www.instagram.com/"><i class="fa fa-instagram fa-lg"></i></a>
-      <a href="https://soundcloud.com/"><i class="fa fa-soundcloud fa-lg"></i></a>
-      <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-lg"></i></a>
-      <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter-square fa-lg"></i></a>
-    </div>
-
-  </div>
+  </v-container>
 
 </template>
 
@@ -67,10 +66,10 @@
   export default {
     data() {
       return {
-        scale: 'Select Scale',
-        technique: 'Select Technique',
-        time_signature: 'Select Time Signature',
-        chord_prog: 'Select Chord Progression'
+        scale: 'Get Scale',
+        technique: 'Get Technique',
+        time_signature: 'Get Time Signature',
+        chord_prog: 'Get Chord Progression'
       }
     },
     // To fetch Guitarist Toolbox API random information
@@ -123,78 +122,3 @@
   }
 
 </script>
-
-<!-- Styling for application -->
-<style scoped>
-
-  ul,
-  li {
-    list-style-type: none;
-    list-style-position: inside;
-    margin: 0;
-    padding: 0;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .app {
-    margin: 0 auto;
-    width: 90%;
-    color: #303841;
-  }
-
-  .info-container {
-    border-radius: 25px;
-    background: #eee;
-    padding: 20px;
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(50px, auto);
-    grid-gap: 20px;
-    grid-column: 1/4;
-    padding-top: 20px;
-  }
-
-  .center-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(50px, auto);
-    grid-gap: 20px;
-    grid-column: 1/4;
-    padding-top: 20px;
-  }
-
-  .btn {
-    display: flex;
-    border-radius: 25px;
-    background-color: #eee;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .random-btn {
-    display: flex;
-    border-radius: 25px;
-    background-color: #eee;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .random-btn:hover {
-    background-color: #ff5722;
-  }
-
-  .social-media {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column: 1/4;
-    padding-top: 150px;
-  }
-
-</style>
